@@ -1,0 +1,279 @@
+﻿<Window x:Class="SkiServcieWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkiServcieWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.4*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="0"
+                    Grid.Row="0">
+            <!--Search Auftrag-->
+            <TextBox x:Name="TextBoxSearch"
+                     Width="200"
+                     Height="35" 
+                     Margin="10,0,0,0"/>
+
+            <!--Auftrag Löschen-->
+            <Button x:Name="btnDelete"
+                    Width="50"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Image Source="C:\Users\leon\OneDrive - ipso! Bildung\Schule\Module\Modul_322\Programme\SkiServcieWPF\img\Delete_Icon.png"
+                       Height="40" />
+            </Button>
+        </StackPanel>
+        
+
+        <!--Login-->
+        <Button x:Name="btnLogin"
+                HorizontalAlignment="Right"
+                Height="auto"
+                Width="50"
+                Background="Transparent"
+                BorderThickness="0"
+                Margin="0,0,10,0"
+                Grid.Column="1"
+                Grid.Row="0">
+            <Image Source="C:\Users\leon\OneDrive - ipso! Bildung\Schule\Module\Modul_322\Programme\SkiServcieWPF\img\Login_Icon.png"
+                   Height="40" />
+        </Button>
+
+        <!--Auftrags Liste-->
+        <ListView x:Name="ListAufträge"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.RowSpan="2"
+                  Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn 
+                        x:Name="GridViewColumName"
+                        Header="Name" />
+                    <GridViewColumn 
+                        x:Name="FridViewColumPriorität"
+                        Header="Priorität" />
+                    <GridViewColumn 
+                        x:Name="FridViewColumDienstleistung"
+                        Header="Dienstleistung" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--Genauere Auftrags Daten Kunden Daten--> 
+        <GroupBox 
+            x:Name="GroupKundenDaten"
+            Header="Kunden Daten"
+            Grid.Column="1"
+            Grid.Row="2"
+            Margin="10,5,10,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                
+                <!--Kunden Name-->
+                <Label 
+                    x:Name="LabelName"
+                    Content="Vorname"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="5"
+                    Grid.Column="0"
+                    Grid.Row="0"/>
+                <TextBox 
+                    x:Name="tbVorname"
+                    Text=""
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5"/>
+
+                <Label x:Name="LabelNachname"
+                       Content="Nachname"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="2"
+                       Grid.Row="0" />
+                <TextBox x:Name="tbNachname"
+                         Text=""
+                         Grid.Column="3"
+                         Grid.Row="0"
+                         Margin="5" />
+
+                <!--Kunden Email-->
+                <Label x:Name="LabelEmail"
+                       Content="Email"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <TextBox x:Name="tbEmail"
+                         Text=""
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Grid.ColumnSpan="3"
+                         Margin="5" />
+
+                <!--Kunden Telefon-->
+                <Label x:Name="LabelTele"
+                       Content="Telefon"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <TextBox x:Name="tbTele"
+                         Text=""
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="3"
+                         Margin="5" />
+            </Grid>
+        </GroupBox>
+
+        <!--Genauere Auftrags Daten Augtrags Daten-->
+        <GroupBox x:Name="GroupAuftragsDaten"
+                  Header="Auftrags Daten"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                
+                <!--Dienstleistung-->
+                <Label x:Name="LabelDienstleistung"
+                       Content="Dienstleistung"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <ComboBox x:Name="cbDienstleistung"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Grid.ColumnSpan="3"
+                          Margin="5">
+                    <ComboBoxItem Content="Heisswachsen"/>
+                </ComboBox>
+
+                <!--Priorität-->
+                <Label x:Name="LabelPriorität"
+                       Content="Priorität"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <ComboBox x:Name="cbPriorität"
+                          Grid.Column="1"
+                          Grid.Row="1"
+                          Margin="5">
+                    <ComboBoxItem Content="Hoch"/>
+                    <ComboBoxItem Content="Mittel" />
+                    <ComboBoxItem Content="Niedrig" />
+                </ComboBox>
+
+                <!--Status-->
+                <Label x:Name="LabelStatus"
+                        Content="Status"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Grid.Column="2"
+                        Grid.Row="1" />
+                <ComboBox x:Name="cbStatus"
+                            Grid.Column="3"
+                            Grid.Row="1"
+                            Margin="5">
+                    <ComboBoxItem Content="Offen" />
+                    <ComboBoxItem Content="in Arbeit" />
+                    <ComboBoxItem Content="Abgeschlossen" />
+                </ComboBox>
+
+                <Label x:Name="LabelErstellDatum"
+                       Content="Erstell Datum"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <DatePicker x:Name="datePckerErstellung"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Margin="5"/>
+
+                <Label x:Name="LabelAbholDatum"
+                       Content="Abhol Datum"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="5"
+                       Grid.Column="2"
+                       Grid.Row="2" />
+                <DatePicker x:Name="datePickerAbholung"
+                            Grid.Column="3"
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Margin="5"/>
+            </Grid>
+        </GroupBox>
+
+        <!--Neu, Akktualisieren und Abbrech Buttons-->
+        <StackPanel x:Name="StackPanelButtons"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="0,0,5,0">
+            <Button x:Name="btnZurücksetzten"
+                    Content="Neu Erstellen"
+                    Margin="5"
+                    Width="80" />
+            <Button x:Name="btnUebernehmen"
+                    Content="Übernehmen"
+                    Margin="5"
+                    Width="80" />
+            <Button x:Name="btnNeuerstellen"
+                    Content="Zurücksetzten"
+                    Margin="5"
+                    Width="80" />
+        </StackPanel>
+
+
+    </Grid>
+</Window>
