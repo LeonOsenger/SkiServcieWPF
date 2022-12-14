@@ -54,7 +54,6 @@
 
         <!--Auftrags Liste-->
         <ListView x:Name="ListAufträge"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
                   Grid.Column="0"
                   Grid.Row="1"
                   Grid.RowSpan="2"
@@ -63,13 +62,16 @@
                 <GridView>
                     <GridViewColumn 
                         x:Name="GridViewColumName"
-                        Header="Name" />
+                        Header="Name" 
+                        DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn 
                         x:Name="FridViewColumPriorität"
-                        Header="Priorität" />
+                        Header="Priorität"
+                        DisplayMemberBinding="{Binding Priorität}" />
                     <GridViewColumn 
                         x:Name="FridViewColumDienstleistung"
-                        Header="Dienstleistung" />
+                        Header="Dienstleistung"
+                        DisplayMemberBinding="{Binding Auftrag}" />
                 </GridView>
             </ListView.View>
         </ListView>
