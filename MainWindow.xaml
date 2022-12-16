@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SkiServcieWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1000">
+        Title="MainWindow"
+        Height="550"
+        Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -57,21 +59,23 @@
                   Grid.Column="0"
                   Grid.Row="1"
                   Grid.RowSpan="2"
-                  Margin="10">
+                  Margin="10"
+                  ItemsSource="{Binding PersonsList}"
+                  SelectedItem="{Binding SelectedPerson}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
                         x:Name="GridViewColumName"
-                        Header="Name" 
-                        DisplayMemberBinding="{Binding Name}"/>
+                        Header="Name"
+                        DisplayMemberBinding="{Binding Auftrag_KundenName}"/>
                     <GridViewColumn 
                         x:Name="FridViewColumPriorität"
                         Header="Priorität"
-                        DisplayMemberBinding="{Binding Priorität}" />
+                        DisplayMemberBinding="{Binding Auftrag_Priorität}" />
                     <GridViewColumn 
                         x:Name="FridViewColumDienstleistung"
                         Header="Dienstleistung"
-                        DisplayMemberBinding="{Binding Auftrag}" />
+                        DisplayMemberBinding="{Binding Auftrag_Dienstleistung}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -97,33 +101,19 @@
                 </Grid.RowDefinitions>
                 
                 <!--Kunden Name-->
-                <Label 
-                    x:Name="LabelName"
-                    Content="Vorname"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="5"
-                    Grid.Column="0"
-                    Grid.Row="0"/>
-                <TextBox 
-                    x:Name="tbVorname"
-                    Text=""
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Margin="5"/>
-
-                <Label x:Name="LabelNachname"
-                       Content="Nachname"
+                <Label x:Name="LabelName"
+                       Content="Name"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Margin="5"
-                       Grid.Column="2"
+                       Grid.Column="0"
                        Grid.Row="0" />
-                <TextBox x:Name="tbNachname"
-                         Text=""
-                         Grid.Column="3"
+                <TextBox x:Name="tbName"
+                         Text="{Binding SelectedPerson.Auftrag_KundenName}"
+                         Grid.Column="1"
                          Grid.Row="0"
-                         Margin="5" />
+                         Margin="5"
+                         Grid.ColumnSpan="3" />
 
                 <!--Kunden Email-->
                 <Label x:Name="LabelEmail"

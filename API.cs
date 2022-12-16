@@ -21,8 +21,6 @@ namespace SkiServcieWPF
 
             List<Auftragsdaten> Auftragsliste = JsonConvert.DeserializeObject<List<Auftragsdaten>>(GetAufträge.Content);
 
-
-
             return Auftragsliste;
         }
     }

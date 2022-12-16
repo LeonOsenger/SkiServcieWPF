@@ -1,4 +1,5 @@
 ﻿using SkiServcieWPF.Model;
+using SkiServcieWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,19 +26,7 @@ namespace SkiServcieWPF
         public MainWindow()
         {
             InitializeComponent();
-
-            //ListView mit Daten befüllen
-            List<Auftragsdaten> AuftragsdatenGesamt = API.AufträgeRequest();
-
-            List<AuftragsdatenListe> AuftragsdatenEinzel = new List<AuftragsdatenListe>();
-
-            foreach (var Gesamt in AuftragsdatenGesamt)
-            {
-                this.ListAufträge.Items.Add(new AuftragsdatenListe { Name = Gesamt.Auftrag_KundenName, Priorität = Gesamt.Auftrag_Priorität, Auftrag = Gesamt.Auftrag_Dienstleistung} );
-            }
-
-            
-
+            DataContext = new MainViewModel();
         }
     }
 }
