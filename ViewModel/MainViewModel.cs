@@ -26,8 +26,8 @@ namespace SkiServcieWPF.ViewModel
             //CmdInsert = new RelayCommand(param => Execute_Insert(), param => CanExecute_Insert());
         }
 
-        private AuftragsDatenViewModel _SelectedPerson = new AuftragsDatenViewModel(new Auftragsdaten());
-        public AuftragsDatenViewModel SelectedPerson
+        private Auftragsdaten _SelectedPerson = new Auftragsdaten();
+        public Auftragsdaten SelectedPerson
         {
             get
             {
@@ -35,8 +35,27 @@ namespace SkiServcieWPF.ViewModel
             }
             set
             {
-                SetProperty<AuftragsDatenViewModel>(ref _SelectedPerson, value);
-                OnPropertyChaged(nameof(SelectedPerson));
+                if(value != _SelectedPerson)
+                {
+                    SetProperty<Auftragsdaten>(ref _SelectedPerson, value);
+                    AuftragsDatenPerson = _SelectedPerson;
+                }
+            }
+        }
+
+        private Auftragsdaten _AuftragsDatenPerson = new Auftragsdaten();
+        public Auftragsdaten AuftragsDatenPerson
+        {
+            get
+            {
+                return _AuftragsDatenPerson;
+            }
+            set
+            {
+                if (value != _AuftragsDatenPerson)
+                {
+                    SetProperty<Auftragsdaten>(ref _AuftragsDatenPerson, value);
+                }
             }
         }
 

@@ -10,11 +10,11 @@ namespace SkiServcieWPF.ViewModel
 {
     public class AuftragsDatenViewModel : ViewModelBase
     {
-        private readonly Auftragsdaten _auftragsdaten;
+        public Auftragsdaten _auftragsdaten;
 
         public string Auftrag_Dienstleistung => _auftragsdaten.Auftrag_Dienstleistung;
 
-        public string Auftrag_Priorität => _auftragsdaten.Auftrag_Priorität;
+        public Priorität Auftrag_Priorität => _auftragsdaten.Auftrag_Priorität;
 
         public string Auftrag_KundenName => _auftragsdaten.Auftrag_KundenName;
 
@@ -22,7 +22,7 @@ namespace SkiServcieWPF.ViewModel
 
         public int Auftrag_KundenTelefon => _auftragsdaten.Auftrag_KundenTelefon;
 
-        public string Auftrag_status => _auftragsdaten.Auftrag_status;
+        public Status Auftrag_status => _auftragsdaten.Auftrag_status;
 
         public DateTime Auftrag_CreateDate => _auftragsdaten.Auftrag_CreateDate;
 

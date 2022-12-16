@@ -10,7 +10,7 @@ namespace SkiServcieWPF.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
 
         protected void OnPropertyChaged(string propertyName)
         {

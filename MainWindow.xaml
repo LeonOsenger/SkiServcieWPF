@@ -109,7 +109,7 @@
                        Grid.Column="0"
                        Grid.Row="0" />
                 <TextBox x:Name="tbName"
-                         Text="{Binding SelectedPerson.Auftrag_KundenName}"
+                         Text="{Binding AuftragsDatenPerson.Auftrag_KundenName}"
                          Grid.Column="1"
                          Grid.Row="0"
                          Margin="5"

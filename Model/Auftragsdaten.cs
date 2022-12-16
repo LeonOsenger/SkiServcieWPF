@@ -11,7 +11,7 @@ namespace SkiServcieWPF.Model
     {
         public string Auftrag_Dienstleistung { get; set; }
 
-        public string Auftrag_Priorität { get; set; }
+        public Priorität Auftrag_Priorität { get; set; }
 
         public string Auftrag_KundenName { get; set; }
 
@@ -19,10 +19,20 @@ namespace SkiServcieWPF.Model
 
         public int Auftrag_KundenTelefon { get; set; }
 
-        public string Auftrag_status { get; set; }
+        public Status Auftrag_status { get; set; }
 
         public DateTime Auftrag_CreateDate { get; set; }
 
         public DateTime Auftrag_PickUpDate { get; set; }
+    }
+
+    public enum Priorität
+    {
+        Niedrig, Mittel, Hoch
+    }
+
+    public enum Status
+    {
+        Offen, InArbeit, Abgeschlossen
     }
 }

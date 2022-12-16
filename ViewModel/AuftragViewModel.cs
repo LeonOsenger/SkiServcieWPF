@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkiServcieWPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,8 @@ namespace SkiServcieWPF.ViewModel
         }
 
 
-        private string _Auftrag_Priorität;
-        public string Auftrag_Priorität
+        private Priorität _Auftrag_Priorität;
+        public Priorität Auftrag_Priorität
         {
             get
             {
@@ -83,8 +84,8 @@ namespace SkiServcieWPF.ViewModel
         }
 
 
-        private string _Auftrag_status;
-        public string Auftrag_status
+        private Status _Auftrag_status;
+        public Status Auftrag_status
         {
             get
             {
