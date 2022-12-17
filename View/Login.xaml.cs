@@ -23,7 +23,7 @@ namespace SkiServcieWPF.View
         public Login()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = new LoginViewModel();
         }
     }
 }

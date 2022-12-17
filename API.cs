@@ -24,5 +24,20 @@ namespace SkiServcieWPF
 
             return Auftragsliste;
         }
+
+        private static RestClient clientLogin = new RestClient("https://localhost:7020/api/Token/login");
+
+        public static string GetToken(string User, string Passwort)
+        {
+            var payload = new JObject();
+            payload.Add("Benutzer_Name", User);
+            payload.Add("Benutzer_Passwort", Passwort);
+
+            request.AddStringBody(payload.ToString(), DataFormat.Json);
+
+            //var response = clientLogin.Execute(request, Method.Post).Content;
+
+            return clientLogin.Execute(request, Method.Post).Content;
+        }
     }
 }
