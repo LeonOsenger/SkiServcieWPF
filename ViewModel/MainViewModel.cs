@@ -1,10 +1,13 @@
 ﻿using SkiServcieWPF.Model;
+using SkiServcieWPF.Utility;
+using SkiServcieWPF.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SkiServcieWPF.ViewModel
 {
@@ -13,6 +16,8 @@ namespace SkiServcieWPF.ViewModel
         private ObservableCollection<AuftragsDatenViewModel> _personList = new ObservableCollection<AuftragsDatenViewModel>();
 
         private List<Auftragsdaten> AuftragsdatenGesamt = API.AufträgeRequest();
+
+        public RelayCommand cmdLoginPage { get; set; }
 
         public MainViewModel()
         {
@@ -23,7 +28,7 @@ namespace SkiServcieWPF.ViewModel
                 _personList.Add(new AuftragsDatenViewModel(Zeile));
             }
 
-            //CmdInsert = new RelayCommand(param => Execute_Insert(), param => CanExecute_Insert());
+            cmdLoginPage = new RelayCommand(param => Execute_LoginPage(), param => CanExecute_LoginPage());
         }
 
         private Auftragsdaten _SelectedPerson = new Auftragsdaten();
@@ -63,6 +68,17 @@ namespace SkiServcieWPF.ViewModel
         {
             get => _personList;
             set => _personList = value;
+        }
+
+        private void Execute_LoginPage()
+        {
+            Login login = new Login();
+            login.ShowDialog();
+        }
+
+        private bool CanExecute_LoginPage()
+        {
+            return true;
         }
     }
 }
