@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SkiServcieWPF.View"
+        xmlns:ViewModels="clr-namespace:SkiServcieWPF.ViewModel"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="600">
+        x:Name="WindowLogin"
+        Title="Login"
+        Height="350"
+        Width="600">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Label" x:Key="Titel">
@@ -66,11 +70,11 @@
                Grid.Column="1"
                Grid.Row="2"
                Style="{StaticResource Normal}" />
+        
         <TextBox x:Name="tbPasswort"
                  Grid.Column="2"
                  Grid.Row="2" 
                  Text="{Binding Passwort}"/>
-        
         
         <!--Ok Button-->
         <Button x:Name="btnOk"
@@ -82,6 +86,8 @@
                 Margin="0,5,5,0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
-                Command="{Binding cmdTokenCreate}"/>
+                Command="{Binding CloseCommand}">
+            
+        </Button>
     </Grid>
 </Window>

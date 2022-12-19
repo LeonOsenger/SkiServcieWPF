@@ -1,4 +1,5 @@
-﻿using SkiServcieWPF.ViewModel;
+﻿using SkiServcieWPF.Stores;
+using SkiServcieWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,23 @@ namespace SkiServcieWPF.View
     /// </summary>
     public partial class Login : Window
     {
-        public Login()
+        
+        public Login(LoginStore login)
         {
             InitializeComponent();
-            DataContext = new LoginViewModel();
+            Loaded += MainWindow_Loaded;
+            DataContext = new LoginViewModel(login);
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is ICloseWindow vm)
+            {
+                vm.Close += () =>
+                {
+                    this.Close();
+                };
+            }
         }
     }
 }

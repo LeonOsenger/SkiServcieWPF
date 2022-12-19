@@ -1,4 +1,5 @@
 ﻿using SkiServcieWPF.Model;
+using SkiServcieWPF.Stores;
 using SkiServcieWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace SkiServcieWPF
         public MainWindow()
         {
             InitializeComponent();
+            LoginStore loginStore = new LoginStore();
+            DataContext = new MainViewModel(loginStore);
         }
     }
 }

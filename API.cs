@@ -5,8 +5,11 @@ using SkiServcieWPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using DataFormat = RestSharp.DataFormat;
 
 namespace SkiServcieWPF
 {
@@ -27,7 +30,7 @@ namespace SkiServcieWPF
 
         private static RestClient clientLogin = new RestClient("https://localhost:7020/api/Token/login");
 
-        public static string GetToken(string User, string Passwort)
+        public static UserTokenModel GetToken(string User, string Passwort)
         {
             var payload = new JObject();
             payload.Add("Benutzer_Name", User);
@@ -35,9 +38,9 @@ namespace SkiServcieWPF
 
             request.AddStringBody(payload.ToString(), DataFormat.Json);
 
-            //var response = clientLogin.Execute(request, Method.Post).Content;
+            var response = clientLogin.Execute(request, Method.Post).Content;
 
-            return clientLogin.Execute(request, Method.Post).Content;
+            return JsonConvert.DeserializeObject<UserTokenModel>(response);
         }
     }
 }
